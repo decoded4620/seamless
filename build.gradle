@@ -1,0 +1,35 @@
+allprojects  {
+  apply plugin: 'maven'
+
+  group = 'org.seamless'
+version = '1.1.2-SNAPSHOT'
+}
+
+subprojects {
+  apply plugin: 'java'
+  sourceCompatibility = 1.5
+  targetCompatibility = 1.5
+
+  task packageSources(type: Jar) {
+classifier = 'sources'
+from sourceSets.main.allSource
+
+}
+artifacts.archives packageSources
+  repositories {
+    mavenLocal()
+    
+    maven { url "http://4thline.org/m2" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+  }
+
+  
+  dependencies {
+    testCompile(group: 'org.testng', name: 'testng', version:'6.2') {
+exclude(module: 'junit')
+    }
+}
+
+  test.useTestNG()
+
+}

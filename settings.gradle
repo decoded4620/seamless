@@ -1,0 +1,18 @@
+rootProject.name = 'parent'
+include ':seamless-util'
+include ':seamless-xml'
+include ':seamless-mock'
+include ':seamless-http'
+include ':seamless-javadoc'
+include ':seamless-swing'
+include ':seamless-gwt'
+include ':seamless-cdi'
+
+project(':seamless-util').projectDir = "$rootDir/util" as File
+project(':seamless-xml').projectDir = "$rootDir/xml" as File
+project(':seamless-mock').projectDir = "$rootDir/mock" as File
+project(':seamless-http').projectDir = "$rootDir/http" as File
+project(':seamless-javadoc').projectDir = "$rootDir/javadoc" as File
+project(':seamless-swing').projectDir = "$rootDir/swing" as File
+project(':seamless-gwt').projectDir = "$rootDir/gwt" as File
+project(':seamless-cdi').projectDir = "$rootDir/cdi" as File
